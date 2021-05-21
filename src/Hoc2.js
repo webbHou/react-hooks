@@ -21,10 +21,12 @@ function HOC2(WrapCompont){
             changeModal: PropTypes.func
         }
 
+
+        //该input vlaue值改变时触发
         change=(e)=>{
             const { changeModal } = this.context;
             const { v_modal,check } = this.props;
-            if(check.func&& typeof check.func === 'function'){
+            if(check.func && typeof check.func === 'function'){ //需要类型校验的进行校验
                 if(!check.func(e.target.value)){
                     return this.setState({
                         error:check.msg
@@ -38,14 +40,11 @@ function HOC2(WrapCompont){
             changeModal(v_modal,e.target.value);
         }
 
-        getRef = () => this.wraref
     
         render() {
-            console.log(this.ref)
             const { modal } = this.context;
-            const { v_modal,check,forwardedRef } = this.props;
+            const { v_modal,forwardedRef } = this.props;
 
-            console.log(this.state.error)
             return (
                 <div>
                     <WrapCompont value={modal[v_modal]} ref={forwardedRef} onChange={this.change} />
@@ -63,7 +62,7 @@ function HOC2(WrapCompont){
 
 class Put extends Component { 
 
-    log(){
+    log(){ //表单父组件可操作执行
         console.log(1)
     }
 

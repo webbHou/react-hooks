@@ -35,11 +35,11 @@ export default function HOOK(){
         }
     },[])
 
-    const K = useMemo(()=>{
+    const K = useMemo(()=>{ //模块钩子
     return <p>{color}</p>
     },[color])
     
-    const K2 = useCallback(()=>{
+    const K2 = useCallback(()=>{ //回调处理函数钩子
         console.log(color);
         function setBg(color) {  
             if(color=='red'){
@@ -82,7 +82,8 @@ export default function HOOK(){
 
 }
 
-function Child2(){
+//两种contenxt的接收方式
+function Child2(){  //context.Consumer
 
     return (
         <context.Consumer>
@@ -95,7 +96,7 @@ function Child2(){
 }
 
 
-function Child(){
+function Child(){ //useContext
 
     useEffect(()=>{
         console.log('更新child');

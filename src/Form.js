@@ -1,8 +1,23 @@
+/*
+ * @Author: webbhou
+ * @Date: 2020-12-01 16:07:56
+ * @LastEditors: webbhou
+ * @LastEditTime: 2021-05-21 15:55:39
+ * @FilePath: /me/react-hooks/src/Form.js
+ * @Description: 
+ */
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
 import Input from './Hoc2';
+import MakeCallHoc, { MakeCall } from './Hoc3';
+
+const Btn = props => {
+    return <button style={{ width: '100px' }} {...props}>打电话</button>
+}
+
+const CallBtn = MakeCallHoc(Btn);
 
 export default class Form extends Component{
 
@@ -50,10 +65,11 @@ export default class Form extends Component{
     render(){
         return (
             <div>
-                <Input check={this.validatorName} ref={ref=>{this.ref=ref}}  v_modal='name' />
+                <Input check={this.validatorName} ref={ref=>this.ref=ref}  v_modal='name' />
                 <Input check={this.validatorAge} v_modal='age' />
+                {/* <CallBtn style={{ width: '200px' }} /> */}
+                {/* <MakeCall /> */}
             </div>
         )
     }
-
 }

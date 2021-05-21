@@ -20,7 +20,7 @@ const connect = (mapStateToProps,mapDispatchToprops) => (Wrapcompont) =>{
             const store = this.context.store;
             console.log(this.context)
             this._update();
-            store.subscribe(() => this._update());
+            store.subscribe(() => this._update()); //订阅store 改变时触发
         }
 
         //数据更新页面更新
